@@ -117,7 +117,8 @@
             <label for="category" class="form-label">Kategori <span class="required">*</span></label>
             <select id="category" class="form-select" required>
               <option value="">Pilih Kategori</option>
-              <option value="gauging">Gauging</option>
+              <!-- samakan value category dengan data master sheet -->
+              <option value="Gauging">Gauging</option>
               <option value="Pokayoke">Pokayoke</option>
               <option value="Clearance">Clearance</option>
             </select>
@@ -148,7 +149,7 @@
       </div>
 
       <!-- STEP 2 -->
-      <div id="step2" class="form-step">
+      <div id="step2" class="form-step" style="display:none;">
         <div class="info-alert">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"></circle>
@@ -165,8 +166,20 @@
         </div>
 
         <form id="masterCheckForm">
-          <!-- INI WAJIB ADA untuk UI lama -->
-          <div id="masterList"></div>
+          <!-- TABLE TARGET: harus ada #tableBody -->
+          <div style="overflow:auto;">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width:60px;">No</th>
+                  <th>Master</th>
+                  <th style="width:160px;">Status</th>
+                  <th>Remark</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
 
           <div class="form-actions">
             <button type="button" class="btn-back" onclick="goToStep1()">
@@ -179,6 +192,7 @@
           </div>
         </form>
       </div>
+
     </div>
   </div>
 
